@@ -3,14 +3,14 @@ const ms = require("ms");
 
 module.exports.run = async (bot, msg, args) => {
 
-	//h?mute @Shrey87 1s/m/h/d
-		let staffrole = msg.guild.roles.find("name", "Staff");
+	//!!mute @Shrey87 1s/m/h/d REASON
+		// let staffrole = msg.guild.roles.find("name", "Staff");
 		let tomute = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
 		let mreason = args.join(" ").slice(25);
 		if (!mreason) return msg.channel.sendMessage(`Please Specify The Reason`);
-		if (!msg.member.roles.has(staffrole.id)) return msg.channel.send("You Cannot Mute People!");
-	  	if (!tomute) return msg.channel.send("Couldn't find user.");
-	  	if (tomute.hasPermission("MANAGE_ROLES")) return msg.channel.send("Can't mute them!");
+		if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send("You Cannot Mute People!");
+	  if (!tomute) return msg.channel.send("Couldn't find user.");
+		// if (tomute.hasPermission("MANAGE_ROLES")) return msg.channel.send("Can't mute them!");
 	 	let muterole = msg.guild.roles.find(`name`, "Muted");
 	 	 //start of create role
 		 if(!muterole){
