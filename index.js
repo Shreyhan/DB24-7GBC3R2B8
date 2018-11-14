@@ -35,11 +35,11 @@ bot.on("ready", async () => {
 	bot.user.setGame(`${prefix}help`);
 });
 
-bot.on("guildMemberAdd", (member)=> {
-  let guild = member.guild;
-  // guild.channels.get("451806270186323969").sendMessage(`Hey ${member.user}, welcome to **${msg.guild.name}** 🎉🤗! Make Sure to check out #rules and #infos`);
-  console.log(`New Member On Server (${msg.guild.name})! : ${member.user}`);
-});
+// bot.on("guildMemberAdd", (member)=> {
+//   let guild = member.guild;
+//   // guild.channels.get("451806270186323969").send(`Hey ${member.user}, welcome to **${msg.guild.name}** 🎉🤗! Make Sure to check out #rules and #infos`);
+//   console.log(`New Member On Server (${msg.guild.name})! : ${member.user}`);
+// });
 
 bot.on("message", async(msg) => {
 	let message = msg
