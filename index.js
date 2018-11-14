@@ -32,7 +32,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
 	console.log(`Logged in as ${bot.user.tag}!`);
-	bot.user.setGame(`${prefix}help`);
+	bot.user.setActivity(`${prefix}help`, { type: 'PLAYING' });
 });
 
 // bot.on("guildMemberAdd", (member)=> {
