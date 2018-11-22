@@ -58,9 +58,7 @@ bot.on("message", async(msg) => {
 		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
 	}
-	if (!hyperlogs) {
-		return;
-	} else {
+	if (hyperlogs) {
 		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 
