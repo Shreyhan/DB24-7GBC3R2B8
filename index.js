@@ -50,7 +50,7 @@ bot.on("message", async(msg) => {
 	let args = messageArray.slice(1);
 
 	let logchannel = msg.guild.channels.find("name", "logs");
-	let hyperlogs = msg.guild.channels.find("name", "logs");
+	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
 
 	if (!logchannel) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
