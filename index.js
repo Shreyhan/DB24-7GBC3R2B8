@@ -49,21 +49,19 @@ bot.on("message", async(msg) => {
 	let cmd = messageArray[0];
 	let args = messageArray.slice(1);
 
-	// let tagchannel = msg.guild.channels.find("name", "warning-or-mute-logs");
-	// if(msg.content.includes('@everyone')) {
-	// 	tagchannel.send(`${msg.author} tagged everyone when he said "${msg.content.replace(/@/g, '')}" in #${msg.channel.name}`);
-	// }
-	// if(msg.content.includes('@here')) {
-	// 	tagchannel.send(`${msg.author} tagged here when he said "${msg.content.replace(/@/g, '')}" in #${msg.channel.name}`);
-	// }
-
 	let logchannel = msg.guild.channels.find("name", "logs");
+	let hyperlogs = msg.guild.channels.find("name", "logs");
 
 	if (!logchannel) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
 	} else {
 		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+	}
+	if (!hyperlogs) {
+		return;
+	} else {
+		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 
 	if(!msg.content.startsWith(botconfig.prefix)) return;
