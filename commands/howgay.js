@@ -1,12 +1,11 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, msg, args) => {
-	let replies = ["100%", "19%", "1%", "45%"];
+	function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
-	let answer = Math.floor((Math.random() * replies.length));
-	let question = args.slice(1).join(" ");
-
-	msg.channel.send(`${replies[answer]} gay`);
+msg.channel.send(`${getRandomInt(100)}% gay`);
 };
 
 module.exports.help = {
