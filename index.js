@@ -89,9 +89,9 @@ bot.on("message", async(msg) => {
 	if (cmd === `${prefix}restart`) {
 		if(msg.author.id === `253796217820151808`) {
 			msg.channel.send("`Restarted`")
-    		msg.channel.send(`Logged in as ${bot.user}!`)
+    	msg.channel.send(`Logged in as ${bot.user}!`)
 		} else {
-			msg.channel.send(`you are not <@253796217820151808>`)
+			msg.channel.send(`you are not my owner...`)
 		}
 	}
 });
