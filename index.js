@@ -94,6 +94,13 @@ bot.on("message", async(msg) => {
 			msg.channel.send(`you are not my owner...`)
 		}
 	}
+
+	if (cmd === `${prefix}test`) {
+		if(msg.author.id === `253796217820151808`) {
+			msg.channel.send("`works`")
+		}
+	}
+
 });
 
 bot.login(token).catch(err => console.log(err));

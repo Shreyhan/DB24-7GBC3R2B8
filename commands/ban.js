@@ -5,7 +5,7 @@ module.exports.run = async (bot, msg, args) => {
 	if (!bUser) return msg.channel.send("Please Specify Who you Want To Ban");
 	let breason = args.join(" ").slice(22);
 	if (!breason) return msg.channel.send(`Please Specify Why you Want To Ban ${bUser}`);
-	// if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send("You Cannot Ban People!")
+	if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send("You Cannot Ban People!")
 	// if(bUser.hasPermission("BAN_MEMBERS")) return msg.channel.send("You Cannot Ban That Person")
 
 
