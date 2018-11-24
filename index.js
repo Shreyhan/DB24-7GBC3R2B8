@@ -97,7 +97,7 @@ bot.on("message", async(msg) => {
 
 	if (cmd === `${prefix}test`) {
 		if(msg.author.id === `253796217820151808`) {
-			msg.channel.send("`works`")
+			msg.channel.send("`works!`")
 		}
 	}
 
