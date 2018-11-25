@@ -57,9 +57,12 @@ bot.on("message", async(msg) => {
 		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 	if (telepathicMClogs) {
+		if(hyperlogs) return;
 		telepathicMClogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 	if (logchannel) {
+		if(telepathicMClogs) return;
+		if(hyperlogs) return;
 		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 	// if(!msg.guild.id === `509786753192689664`) {
