@@ -51,6 +51,7 @@ bot.on("message", async(msg) => {
 
 	let logchannel = msg.guild.channels.find("name", "logs");
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
+	let telepathicMClogs = msg.guild.channels.find("name", "message-history");
 
 	if (!logchannel) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
@@ -60,6 +61,9 @@ bot.on("message", async(msg) => {
 	}
 	if (hyperlogs) {
 		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	}
+	if (telepathicMClogs) {
+		telepathicMClogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 	// if(!msg.guild.id === `509786753192689664`) {
 	// 	if (!logchannel) {
