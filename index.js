@@ -54,21 +54,21 @@ bot.on("message", async(msg) => {
 	let telepathicMClogs = msg.guild.channels.find("name", "message-history");
 
 	if (hyperlogs) {
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 	if (telepathicMClogs) {
 		if(hyperlogs) return;
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		telepathicMClogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 	if (logchannel) {
 		if(telepathicMClogs) return;
 		if(hyperlogs) return;
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	} else {
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 	}
 
 
