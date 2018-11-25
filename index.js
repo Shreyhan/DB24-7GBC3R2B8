@@ -53,17 +53,14 @@ bot.on("message", async(msg) => {
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
 	let telepathicMClogs = msg.guild.channels.find("name", "message-history");
 
-	if (!logchannel) {
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
-	} else {
-		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
-	}
 	if (hyperlogs) {
 		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 	if (telepathicMClogs) {
 		telepathicMClogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	}
+	if (logchannel) {
+		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	}
 	// if(!msg.guild.id === `509786753192689664`) {
 	// 	if (!logchannel) {
@@ -78,6 +75,7 @@ bot.on("message", async(msg) => {
 	// } else {
 	// 	console.log(`test`)
 	// }
+	console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
 
 	if(!msg.content.startsWith(botconfig.prefix)) return;
 	let commandfile = bot.commands.get(cmd.slice(2));
