@@ -61,7 +61,7 @@ bot.on("message", async(msg) => {
 	// if (hyperlogs) {
 	// 	hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	// }
-	if(!guild.id === `509786753192689664`) {
+	if(!msg.guild.id === `509786753192689664`) {
 		if (!logchannel) {
 			console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
 		} else {
