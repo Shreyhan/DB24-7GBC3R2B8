@@ -52,14 +52,27 @@ bot.on("message", async(msg) => {
 	let logchannel = msg.guild.channels.find("name", "logs");
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
 
-	if (!logchannel) {
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+	// if (!logchannel) {
+	// 	console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+	// } else {
+	// 	logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	// 	console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+	// }
+	// if (hyperlogs) {
+	// 	hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	// }
+	if(!guild.id === `509786753192689664`) {
+		if (!logchannel) {
+			console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+		} else {
+			logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+			console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
+		}
+		if (hyperlogs) {
+			hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+		}
 	} else {
-		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}`);
-	}
-	if (hyperlogs) {
-		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+		console.log(`test`)
 	}
 
 	if(!msg.content.startsWith(botconfig.prefix)) return;
