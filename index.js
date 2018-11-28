@@ -53,7 +53,19 @@ bot.on("message", async(msg) => {
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
 	let telepathicMClogs = msg.guild.channels.find("name", "message-history");
 
-
+	if (hyperlogs) {
+		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
+		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	} else if (telepathicMClogs) {
+		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
+		telepathicMClogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	} else if (logchannel) {
+		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
+		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	} else {
+		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
+	}
+	
 	if(!msg.content.startsWith(botconfig.prefix)) return;
 	let commandfile = bot.commands.get(cmd.slice(2));
 	if(commandfile) commandfile.run(bot, msg, args);
@@ -91,24 +103,6 @@ bot.on("message", async(msg) => {
 		if(msg.author.id === `253796217820151808`) {
 			msg.channel.send("`works!`")
 		}
-	}
-
-	if (hyperlogs) {
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
-		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
-	}
-	if (telepathicMClogs) {
-		if(hyperlogs) return;
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
-		telepathicMClogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
-	}
-	if (logchannel) {
-		if(telepathicMClogs) return;
-		if(hyperlogs) return;
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
-		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
-	} else {
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 	}
 });
 
