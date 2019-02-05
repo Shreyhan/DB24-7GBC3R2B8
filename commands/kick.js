@@ -6,6 +6,8 @@ module.exports.run = async (bot, msg, args) => {
 		let kreason = args.join(" ").slice(22);
 		if (!kreason) return msg.channel.sendMessage(`Please Specify Why you Want To Kick ${kUser}`);
 		if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send("You Cannot Kick People!")
+		if (msg.author = kUser) return;
+		if (!kUser.manageable) return;
 		// if(kUser.hasPermission("KICK_MEMBERS")) return msg.channel.send("You Cannot Kick That Person")
 
 
