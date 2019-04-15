@@ -7,9 +7,11 @@ module.exports.run = async (bot, msg, args) => {
 		// let staffrole = msg.guild.roles.find("name", "Staff");
 		let tomute = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
 		let mreason = args.join(" ").slice(25);
+		if (!tomute) return msg.channel.send("Couldn't find user.");
+		let mutetime = args[1];
+  		if(!mutetime) return msg.channel.send("You didn't specify a time!");
 		if (!mreason) return msg.channel.sendMessage(`Please Specify The Reason`);
 		if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send("You Cannot Mute People!");
-	  if (!tomute) return msg.channel.send("Couldn't find user.");
 		// if (tomute.hasPermission("MANAGE_ROLES")) return msg.channel.send("Can't mute them!");
 	 	let muterole = msg.guild.roles.find(`name`, "Muted");
 	 	 //start of create role
@@ -31,8 +33,6 @@ module.exports.run = async (bot, msg, args) => {
 	    }
 	  }
 	  //end of create role
-		let mutetime = args[1];
-  		if(!mutetime) return msg.channel.send("You didn't specify a time!");
 
   		await(tomute.addRole(muterole.id));
   		// let mchannel = msg.guild.channels.find(`name`, "warning-or-mute-logs");
