@@ -19,6 +19,7 @@ module.exports.run = async (bot, msg, args) => {
         msg.channel.send(embed)
     } catch (err) {
         return console.log(err);
+        msg.channel.send(err)
     }
 
 }
