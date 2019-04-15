@@ -20,6 +20,7 @@
     "random-color": "^1.0.1",
     "random-facts": "^1.0.6",
     "random-puppy": "^1.1.0",
+    "snekfetch": "^4.0.4",
     "superagent": "^4.0.0-beta.5"
   }
 }
