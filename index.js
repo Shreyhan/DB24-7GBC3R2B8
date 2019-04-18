@@ -33,6 +33,10 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("ready", async () => {
 	console.log(`Logged in as ${bot.user.tag}!`);
 	bot.user.setActivity(`${prefix}help`, { type: 'PLAYING' });
+	console.log("Servers:")
+    bot.guilds.forEach((guild) => {
+        console.log(" - " + guild.name)
+    })
 });
 
 // bot.on("guildMemberAdd", (member)=> {
@@ -101,7 +105,7 @@ bot.on("message", async(msg) => {
 
 	if (cmd === `${prefix}test`) {
 		if(msg.author.id === `253796217820151808`) {
-			msg.channel.send(`${bot.user.username} is on ${bot.guild.size} servers`)
+			msg.channel.send(`Hello Master Shrey!`)
 		}
 	}
 });
