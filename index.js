@@ -51,14 +51,10 @@ bot.on("message", async(msg) => {
 
 	let logchannel = msg.guild.channels.find("name", "logs");
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
-	let telepathicMClogs = msg.guild.channels.find("name", "message-history");
 
 	if (hyperlogs) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
-	} else if (telepathicMClogs) {
-		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
-		telepathicMClogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 	} else if (logchannel) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
@@ -84,6 +80,7 @@ bot.on("message", async(msg) => {
 		msg.delete();
 	  }
 
+
 	if (cmd === `${prefix}ping`){
 		msg.channel.send(`Pinging....`).then(function(m) {
 			m.edit(`:ping_pong: **Pong!** - Took ${m.createdTimestamp - msg.createdTimestamp}ms`);
@@ -101,7 +98,7 @@ bot.on("message", async(msg) => {
 
 	if (cmd === `${prefix}leave`) {
 		if(msg.author.id === `253796217820151808`) {
-		bot.guild.leave(args[0]);
+		bot.guild.leaveGuild(args[0]);
 		}
 	}
 
