@@ -100,7 +100,9 @@ bot.on("message", async(msg) => {
 	}
 
 	if (cmd === `${prefix}leave`) {
-		bot.guild.leave(agrs[0]);
+		if(msg.author.id === `253796217820151808`) {
+		bot.guild.leave(args[0]);
+		}
 	}
 
 	if (cmd === `${prefix}servers`) {
