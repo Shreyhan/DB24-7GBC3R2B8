@@ -2,17 +2,17 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, msg, args) => {
 	  function checkBots(guild) {
-    let botCount = 0; // This is value that we will return
-    guild.members.forEach(member => { // We are executing this code for every user that is in guild
-      if(member.user.bot) botCount++; // If user is a bot, add 1 to botCount value
+    let botCount = 0;
+    guild.members.forEach(member => {
+      if(member.user.bot) botCount++;
     });
-    return botCount; // Return amount of bots
+    return botCount;
   }
 
   function checkMembers(guild) {
     let memberCount = 0;
     guild.members.forEach(member => {
-      if(!member.user.bot) memberCount++; // If user isn't bot, add 1 to value.
+      if(!member.user.bot) memberCount++;
     });
     return memberCount;
   }
