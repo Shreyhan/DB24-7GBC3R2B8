@@ -100,7 +100,7 @@ bot.on("message", async(msg) => {
 	}
 
 	if (cmd === `${prefix}leave`) {
-		bot.guild.leave(567341656961974282);
+		bot.guild.leave(agrs[0]);
 	}
 
 	if (cmd === `${prefix}servers`) {
