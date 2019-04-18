@@ -28,7 +28,6 @@ module.exports.run = async (bot, msg, args) => {
 
 
 		let serverembed = new Discord.RichEmbed()
-		.setDescription("Server Information")
 		.setThumbnail(sicon)
 		.setColor("#f11515")
 		.addField("Server Name", msg.guild.name)
