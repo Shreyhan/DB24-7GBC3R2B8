@@ -65,7 +65,7 @@ bot.on("message", async(msg) => {
 	} else {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 	}
-	
+
 	if(!msg.content.startsWith(botconfig.prefix)) return;
 	let commandfile = bot.commands.get(cmd.slice(2));
 	if(commandfile) commandfile.run(bot, msg, args);
@@ -101,7 +101,7 @@ bot.on("message", async(msg) => {
 
 	if (cmd === `${prefix}test`) {
 		if(msg.author.id === `253796217820151808`) {
-			msg.channel.send("`works!`")
+			msg.channel.send(`${bot.user.username} is on ${bot.guild.size} servers`)
 		}
 	}
 });
