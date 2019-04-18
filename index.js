@@ -105,6 +105,13 @@ bot.on("message", async(msg) => {
 		    })
 		}
 	}
+	if (cmd === `${prefix}leaveall`) {
+		if(msg.author.id === `253796217820151808`) {
+		    bot.guilds.forEach((guild) => {
+		        bot.guild.leave(guild)
+		    })
+		}
+	}
 });
 
 bot.login(token).catch(err => console.log(err));
