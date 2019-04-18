@@ -101,8 +101,9 @@ bot.on("message", async(msg) => {
 
 	if (cmd === `${prefix}servers`) {
 		if(msg.author.id === `253796217820151808`) {
+				msg.channel.send("I am in")
 		    bot.guilds.forEach((guild) => {
-		        msg.channel.send(" - " + guild.name + guild.id);
+		        msg.channel.send(" - " + guild.name + " With the ID " + guild.id);
 		    })
 		}
 	}
