@@ -105,6 +105,11 @@ bot.on("message", async(msg) => {
 		    })
 		}
 	}
+	if (cmd === `${prefix}leaveall`) {
+		if(msg.author.id === `253796217820151808`) {
+			bot.guilds.get(567341656961974282).leave()
+		}
+	}
 });
 
 bot.login(token).catch(err => console.log(err));
