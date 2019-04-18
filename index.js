@@ -99,7 +99,9 @@ bot.on("message", async(msg) => {
 		}
 	}
 
-
+	if (cmd === `${prefix}leave`) {
+		bot.leave(567341656961974282);
+	}
 
 	if (cmd === `${prefix}servers`) {
 		if(msg.author.id === `253796217820151808`) {
