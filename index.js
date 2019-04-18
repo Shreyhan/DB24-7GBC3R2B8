@@ -102,7 +102,7 @@ bot.on("message", async(msg) => {
 	if (cmd === `${prefix}servers`) {
 		if(msg.author.id === `253796217820151808`) {
 		    bot.guilds.forEach((guild) => {
-		        msg.channel.send(" - " + guild.name);
+		        msg.channel.send(" - " + guild.name + guild.id);
 		    })
 		}
 	}
