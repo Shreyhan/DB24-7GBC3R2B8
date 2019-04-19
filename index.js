@@ -38,14 +38,14 @@ bot.on("ready", async () => {
 bot.on("guildMemberAdd", (member)=> {
   let guild = member.guild;
 	if(guild.id === `567341656961974282`) {
-		const welcomec = bot.channels.find("name","🙋-welcome")
+		const welcomec = guild.channels.find("name","🙋-welcome")
 		let welcembed = new Discord.RichEmbed()
 		.setThumbnail(`https://imgur.com/a/8P1Zlkz`)
 		.setColor("#343642")
 		.setTitle("Welcome to The server!")
 		.setDescription(`Welcome, ${member.user} to Hyper!`)
-		.setTimestamp()
-		.setFooter(`${guild.memberCount}`, member.avatarURL);
+		.addField(' ', 'Make sure to follow the rules! 📃')
+		.setFooter(`Members : ${guild.memberCount}`, member.avatarURL);
 		welcomec.send(welcembed);
   	console.log(`New Member On Server (${guild.name})! : ${member.user}`);
 	}
