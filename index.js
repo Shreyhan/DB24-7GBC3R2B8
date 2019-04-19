@@ -37,14 +37,14 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", (member)=> {
   let guild = member.guild;
-	if(guild.id === `567341656961974282`) {
+	if(guild.id === `386171809080410122`) {
 		const welcomec = guild.channels.find("name","🙋-welcome")
 		let welcembed = new Discord.RichEmbed()
 		.setThumbnail(`https://images-ext-2.discordapp.net/external/iX4fv9Xg4ucJsTT0tFw4h88VWA9v2s-EyhRQJZ0IDoA/https/cdn.glitch.com/4fb5d491-ea93-4b55-a6e0-aa811fa4b052%252Fwelcome%2520%281%29.gif`)
 		.setColor("#343642")
 		.setTitle("Welcome to The server!")
 		.setDescription(`Welcome, ${member.user} to Hyper!`)
-		.addField('󠂪', 'Make sure to follow the rules! 📃')
+		.addField("\u200b", 'Make sure to follow the rules! 📃')
 		.setTimestamp()
 		.setFooter(`Members : ${guild.memberCount}`, member.avatarURL);
 		welcomec.send(welcembed);
