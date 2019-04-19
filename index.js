@@ -44,7 +44,7 @@ bot.on("guildMemberAdd", (member)=> {
 		.setColor("#343642")
 		.setTitle("Welcome to The server!")
 		.setDescription(`Welcome, ${member.user} to Hyper!`)
-		.addField(' ', 'Make sure to follow the rules! 📃')
+		.addField('󠂪', 'Make sure to follow the rules! 📃')
 		.setFooter(`Members : ${guild.memberCount}`, member.avatarURL);
 		welcomec.send(welcembed);
   	console.log(`New Member On Server (${guild.name})! : ${member.user}`);
