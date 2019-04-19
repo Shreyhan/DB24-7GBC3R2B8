@@ -47,7 +47,7 @@ bot.on("guildMemberAdd", (member)=> {
 		.setTimestamp()
 		.setFooter(`${guild.memberCount}`, member.avatarURL);
 		welcomec.send(welcembed);
-  	console.log(`New Member On Server (${msg.guild.name})! : ${member.user}`);
+  	console.log(`New Member On Server (${guild.name})! : ${member.user}`);
 	}
 });
 
