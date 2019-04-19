@@ -35,11 +35,21 @@ bot.on("ready", async () => {
 	bot.user.setActivity(`${prefix}help`, { type: 'PLAYING' });
 });
 
-// bot.on("guildMemberAdd", (member)=> {
-//   let guild = member.guild;
-//   // guild.channels.get("451806270186323969").send(`Hey ${member.user}, welcome to **${msg.guild.name}** 🎉🤗! Make Sure to check out #rules and #infos`);
-//   console.log(`New Member On Server (${msg.guild.name})! : ${member.user}`);
-// });
+bot.on("guildMemberAdd", (member)=> {
+  let guild = member.guild;
+	if(guild.id === `567341656961974282`) {
+		const welcomec = bot.channels.find("name","🙋-welcome")
+		let welcembed = new Discord.RichEmbed()
+		.setThumbnail(`https://imgur.com/a/8P1Zlkz`)
+		.setColor("#343642")
+		.setTitle("Welcome to The server!")
+		.setDescription(`Welcome, ${member.user} to Hyper!`)
+		.setTimestamp()
+		.setFooter(`${guild.memberCount}`, member.avatarURL);
+		welcomec.send(welcembed);
+  	console.log(`New Member On Server (${msg.guild.name})! : ${member.user}`);
+	}
+});
 
 bot.on("message", async(msg) => {
 	let message = msg
