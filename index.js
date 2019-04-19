@@ -49,8 +49,19 @@ bot.on("guildMemberAdd", (member)=> {
 		.setFooter(`Members : ${guild.memberCount}`, member.avatarURL);
 		welcomec.send(welcembed);
   	console.log(`New Member On Server (${guild.name})! : ${member.user}`);
+		if(!member.user.bot) {
+			var memberrole = member.guild.roles.find("name", "🔹 | Rookie [0-5]");
+			member.addRole(memberrole);
+		} else {
+			var botrole = member.guild.roles.find("name", "🤖 | Bots");
+			member.addRole(botrole);
+		}
 	}
 });
+
+bot.on("guildMemberRemove", (member) => {
+
+})
 
 bot.on("message", async(msg) => {
 	let message = msg
