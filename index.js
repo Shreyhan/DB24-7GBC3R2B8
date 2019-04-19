@@ -58,10 +58,10 @@ bot.on("guildMemberAdd", (member)=> {
 		}
 	}
 });
-
-bot.on("guildMemberRemove", (member) => {
-
-})
+// 
+// bot.on("guildMemberRemove", (member) => {
+//
+// })
 
 bot.on("message", async(msg) => {
 	let message = msg
