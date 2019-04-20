@@ -3,17 +3,32 @@ const Discord = require("discord.js");
 const token = process.env.token;
 const Client = new Discord.Client();
 var bot = new Discord.Client();
+const fs = require("fs");
 const prefix = botconfig.prefix;
 const superagent = require("superagent");
-const { CommandHandler } = require('djs-commands');
-const CH = new CommandHandler({
-	folder: __dirname + "/commands/",
-	prefix: [`!!`]
+// let xp = require("./xp.json");
+// let warns = require("./warnings.json");
+bot.commands = new Discord.Collection();
+
+fs.readdir("./commands/", (err, files) => {
+	if(err) console.log(err);
+
+	let jsfile = files.filter(f => f.split(".").pop() === "js")
+	if(jsfile.length <= 0){
+		console.log("Could not find commands");
+		return;
+	}
+
+	jsfile.forEach((f, i) =>{
+		let props = require(`./commands/${f}`);
+		console.log(`${f} loaded!`);
+		if (props.help && props.help.name) {
+			bot.commands.set(props.help.name, props);
+		} else {
+			console.error(`file ${f} does not have .help or .help.name property!`);
+		}
+	});
 });
-
-
-
-
 
 bot.on("ready", async () => {
 	console.log(`Logged in as ${bot.user.tag}!`);
@@ -55,7 +70,7 @@ bot.on("message", async(msg) => {
 	let messageArray = msg.content.split(" ");
 	let cmd = messageArray[0];
 	let args = messageArray.slice(1);
-	//logs
+
 	let logchannel = msg.guild.channels.find("name", "logs");
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
 
@@ -68,16 +83,10 @@ bot.on("message", async(msg) => {
 	} else {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 	}
-	//end of logs
 
-	let ccmd = CH.getCommand(command);
-	if(!ccmd) return;
-	try{
-		ccmd.run(bot, msg, args);
-	}catch(e){
-		console.log(e)
-	}
-
+	if(!msg.content.startsWith(botconfig.prefix)) return;
+	let commandfile = bot.commands.get(cmd.slice(2));
+	if(commandfile) commandfile.run(bot, msg, args);
 
 
     if (cmd === `${prefix}avatar`) {
