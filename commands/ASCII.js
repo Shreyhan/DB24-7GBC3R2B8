@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const figlet = require('figlet');
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, msg, args) => {
 	if (!args.join(' ')) return msg.channel.send("provide TEXT");
 	figlet(args.join(' '), (err, data) => {
 		msg.channel.send(data, {
