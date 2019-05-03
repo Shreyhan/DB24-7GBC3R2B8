@@ -64,12 +64,21 @@ bot.on("guildMemberAdd", (member)=> {
 // });
 
 bot.on('messageUpdate', (msg, nmsg) => {
+	let message = msg
+	if (msg.author.bot) return;
 	let logchannel = msg.guild.channels.find("name", "logs");
  let hyperlogs = msg.guild.channels.find("name", "📃-logs");
+ let nmlogs = new Discord.RichEmbed()
+ .setColor("#09CC95")
+ .addField("Message Author", msg.author.tag)
+ .addField('Original Message', msg, true)
+ .addField('Edited Message', nmsg, true)
+ .addField("Channel", msg.channel.name);
 
  if (hyperlogs) {
 	 console.log(`${msg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
-	 hyperlogs.send(`${nmsg.author.tag} edited their message and said "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
+	 // hyperlogs.send(`${nmsg.author.tag} edited their message and said "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
+	 hyperlogs.send(logss)
  } else if (logchannel) {
 	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${msg.guild.name}`);
 	 logchannel.send(`${nmsg.author.tag} edited their message and said "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
@@ -89,7 +98,7 @@ bot.on("message", async(msg) => {
 
 	let logchannel = msg.guild.channels.find("name", "logs");
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
-	let logss = new Discord.RichEmbed()
+	let omlogs = new Discord.RichEmbed()
 	.setColor("#f11515")
 	.addField("Message Author", msg.author.tag)
 	.addField('Message', msg)
@@ -97,7 +106,7 @@ bot.on("message", async(msg) => {
 
 	if (hyperlogs) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
-		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+		// hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
 		hyperlogs.send(logss)
 	} else if (logchannel) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
