@@ -66,6 +66,7 @@ bot.on("guildMemberAdd", (member)=> {
 bot.on('messageUpdate', (msg, nmsg) => {
 	let message = msg
 	if (msg.author.bot) return;
+	// if(message.channel.type === "dm") return;
 	let logchannel = msg.guild.channels.find("name", "logs");
  let hyperlogs = msg.guild.channels.find("name", "📃-logs");
  let nmlogs = new Discord.RichEmbed()
@@ -78,7 +79,7 @@ bot.on('messageUpdate', (msg, nmsg) => {
  if (hyperlogs) {
 	 console.log(`${msg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
 	 // hyperlogs.send(`${nmsg.author.tag} edited their message and said "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
-	 hyperlogs.send(logss)
+	 hyperlogs.send(nmlogs)
  } else if (logchannel) {
 	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${msg.guild.name}`);
 	 logchannel.send(`${nmsg.author.tag} edited their message and said "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
@@ -107,7 +108,7 @@ bot.on("message", async(msg) => {
 	if (hyperlogs) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		// hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
-		hyperlogs.send(logss)
+		hyperlogs.send(omlogs)
 	} else if (logchannel) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
