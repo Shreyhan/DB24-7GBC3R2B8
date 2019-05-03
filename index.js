@@ -66,7 +66,6 @@ bot.on("guildMemberAdd", (member)=> {
 bot.on('messageUpdate', (msg, nmsg) => {
 	let message = msg
 	if (msg.author.bot) return;
-	// if(message.channel.type === "dm") return;
 	let logchannel = msg.guild.channels.find("name", "logs");
  let hyperlogs = msg.guild.channels.find("name", "📃-logs");
  let nmlogs = new Discord.RichEmbed()
@@ -82,7 +81,7 @@ bot.on('messageUpdate', (msg, nmsg) => {
 	 hyperlogs.send(nmlogs)
  } else if (logchannel) {
 	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${msg.guild.name}`);
-	 logchannel.send(`${nmsg.author.tag} edited their message and said "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
+	 logchannel.send(`${nmsg.author.tag} edited their message to "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
  } else {
 	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
  }
