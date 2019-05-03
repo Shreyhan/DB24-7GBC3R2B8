@@ -63,20 +63,20 @@ bot.on("guildMemberAdd", (member)=> {
 //
 // });
 
-bot.on('messageUpdate', (oldMessage, newMessage) => {
+bot.on('messageUpdate', (msg, nmsg) => {
 	let logchannel = msg.guild.channels.find("name", "logs");
  let hyperlogs = msg.guild.channels.find("name", "📃-logs");
 
  if (hyperlogs) {
-	 console.log(`${msg.author.tag} edited their message and said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
-	 hyperlogs.send(`${msg.author.tag} edited their message and said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	 console.log(`${msg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
+	 hyperlogs.send(`${nmsg.author.tag} edited their message and said "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
  } else if (logchannel) {
-	 console.log(`${msg.author.tag} edited their message and said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
-	 logchannel.send(`${msg.author.tag} edited their message and said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${msg.guild.name}`);
+	 logchannel.send(`${nmsg.author.tag} edited their message and said "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
  } else {
-	 console.log(`${msg.author.tag} edited their message and said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
+	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
  }
-}); 
+});
 
 
 bot.on("message", async(msg) => {
