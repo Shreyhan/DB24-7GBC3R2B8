@@ -70,10 +70,10 @@ bot.on('messageUpdate', (msg, nmsg) => {
  let hyperlogs = msg.guild.channels.find("name", "📃-logs");
  let nmlogs = new Discord.RichEmbed()
  .setColor("#09CC95")
- .addField("Message Author", msg.author.tag)
+ .addField("Message Author", msg.author.tag, true)
  .addField('Original Message', msg, true)
  .addField('Edited Message', nmsg, true)
- .addField("Channel", msg.channel.name);
+ .addField("Channel", msg.channel.name, true);
 
  if (hyperlogs) {
 	 console.log(`${msg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
@@ -100,9 +100,9 @@ bot.on("message", async(msg) => {
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
 	let omlogs = new Discord.RichEmbed()
 	.setColor("#f11515")
-	.addField("Message Author", msg.author.tag)
-	.addField('Message', msg)
-	.addField("Channel", msg.channel.name);
+	.addField("Message Author", msg.author.tag, true)
+	.addField('Message', msg, true)
+	.addField("Channel", msg.channel.name, true);
 
 	if (hyperlogs) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
