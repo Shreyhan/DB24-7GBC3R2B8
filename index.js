@@ -63,6 +63,22 @@ bot.on("guildMemberAdd", (member)=> {
 //
 // });
 
+bot.on('messageUpdate', (oldMessage, newMessage) => {
+	let logchannel = msg.guild.channels.find("name", "logs");
+ let hyperlogs = msg.guild.channels.find("name", "📃-logs");
+
+ if (hyperlogs) {
+	 console.log(`${msg.author.tag} edited their message and said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
+	 hyperlogs.send(`${msg.author.tag} edited their message and said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+ } else if (logchannel) {
+	 console.log(`${msg.author.tag} edited their message and said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
+	 logchannel.send(`${msg.author.tag} edited their message and said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+ } else {
+	 console.log(`${msg.author.tag} edited their message and said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
+ }
+}
+
+
 bot.on("message", async(msg) => {
 	let message = msg
 	if (msg.author.bot) return;
@@ -73,10 +89,16 @@ bot.on("message", async(msg) => {
 
 	let logchannel = msg.guild.channels.find("name", "logs");
 	let hyperlogs = msg.guild.channels.find("name", "📃-logs");
+	let logss = new Discord.RichEmbed()
+	.setColor("#f11515")
+	.addField("Message Author", msg.author.tag)
+	.addField('Message', msg)
+	.addField("Channel", msg.channel.name);
 
 	if (hyperlogs) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		hyperlogs.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+		hyperlogs.send(logss)
 	} else if (logchannel) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
