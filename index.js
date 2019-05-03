@@ -76,7 +76,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
  } else {
 	 console.log(`${msg.author.tag} edited their message and said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
  }
-}
+}; 
 
 
 bot.on("message", async(msg) => {
