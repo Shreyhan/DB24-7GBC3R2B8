@@ -115,7 +115,7 @@ bot.on("message", async(msg) => {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 	}
 
-	let compchannel = msg.guild.channel.find('name', "💫-competition");
+	let compchannel = msg.guild.channels.find('name', "💫-competition");
 	if(compchannel) {
 		msg.react('463733119363579904');
 		msg.react('463733158907740180');
