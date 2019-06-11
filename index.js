@@ -85,6 +85,12 @@ bot.on('messageUpdate', (msg, nmsg) => {
  } else {
 	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
  }
+
+ let compchannel = msg.guild.channels.find('name', "💫-competition");
+ if(msg.channel === compchannel) {
+	 msg.react('463733119363579904');
+	 msg.react('463733158907740180');
+ }
 });
 
 
