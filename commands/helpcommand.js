@@ -24,8 +24,8 @@ module.exports.run = async (bot, msg, args) => {
 		.addField(`${prefix}randomfact`, `Gives a random fact!`)
 		.addField(`${prefix}dog`, `Random Dog Picture`)
 		.addField(`${prefix}cat`, `Random Cat Picture`)
-		.addField(`${prefix}meme`, `Random Meme Picture`)
-		.addField(`${prefix}memetext`, `Random Meme Text`);
+		.addField(`${prefix}meme`, `Random Meme Picture`);
+		// .addField(`${prefix}memetext`, `Random Meme Text`);
 
 		let helpstaffembed = new Discord.RichEmbed()
 		.setTitle("Staff Commands")
