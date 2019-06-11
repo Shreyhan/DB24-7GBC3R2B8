@@ -31,6 +31,7 @@ try {
         msg.channel.send(memeembed)
     } catch (err) {
         return console.log(err);
+    }
 };
 module.exports.help = {
 	name: "meme"
