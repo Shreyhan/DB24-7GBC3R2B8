@@ -1,5 +1,7 @@
 // const Discord = require("discord.js");
 // const superagent = require("superagent");
+const Discord = require("discord.js");
+const snekfetch = require('snekfetch');
 //
 module.exports.run = async (bot, msg, args) => {
 // 	let color = ((1 << 24) * Math.random() | 0).toString(16);
