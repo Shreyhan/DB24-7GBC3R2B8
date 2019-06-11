@@ -32,7 +32,6 @@ try {
     } catch (err) {
         return console.log(err);
 };
-
 module.exports.help = {
 	name: "meme"
 }
