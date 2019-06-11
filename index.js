@@ -116,7 +116,7 @@ bot.on("message", async(msg) => {
 	}
 
 	let compchannel = msg.guild.channels.find('name', "💫-competition");
-	if(compchannel) {
+	if(msg.channel === compchannel) {
 		msg.react('463733119363579904');
 		msg.react('463733158907740180');
 	}
