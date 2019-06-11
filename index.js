@@ -125,6 +125,10 @@ bot.on("message", async(msg) => {
 	let commandfile = bot.commands.get(cmd.slice(2));
 	if(commandfile) commandfile.run(bot, msg, args);
 
+		if (msg.author.id === `386490806716071946`) {
+			msg.channel.send("Hey stop copying my commands xD jk idc u can")
+		}
+
 
     if (cmd === `${prefix}avatar`) {
     let AvUser = message.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
