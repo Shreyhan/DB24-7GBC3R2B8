@@ -63,7 +63,7 @@ bot.on("guildMemberAdd", (member)=> {
 //
 // });
 
-bot.on('messageUpdate', (msg, nmsg) => {
+bot.on('messageUpdate', async(msg, nmsg) => {
 	let message = msg
 	if (msg.author.bot) return;
 	let logchannel = msg.guild.channels.find("name", "logs");
@@ -86,11 +86,6 @@ bot.on('messageUpdate', (msg, nmsg) => {
 	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
  }
 
- let compchannel = msg.guild.channels.find('name', "💫-competition");
- if(msg.channel === compchannel) {
-	 msg.react('463733119363579904');
-	 msg.react('463733158907740180');
- }
 });
 
 
