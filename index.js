@@ -166,6 +166,7 @@ bot.on("message", async(msg) => {
 	if (cmd === `${prefix}leave`) {
 		if(msg.author.id === `253796217820151808`) {
 			bot.guilds.get("460102061950894092").leave()
+			msg.channel.send("hi done")
 		}
 	}
 });
