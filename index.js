@@ -43,7 +43,7 @@ bot.on("guildMemberAdd", (member)=> {
 		.setThumbnail(`https://images-ext-2.discordapp.net/external/iX4fv9Xg4ucJsTT0tFw4h88VWA9v2s-EyhRQJZ0IDoA/https/cdn.glitch.com/4fb5d491-ea93-4b55-a6e0-aa811fa4b052%252Fwelcome%2520%281%29.gif`)
 		.setColor("#343642")
 		.setTitle("Welcome to The server!")
-		.setDescription(`Welcome, **${member.user.tag}** to Hyper!`)
+		.setDescription(`Welcome, **${member.user.tag}** to NameNotDecidedYet!`)
 		.addField("\u200b", 'Make sure to get your roles! in #important-roles')
 		.setTimestamp()
 		.setFooter(`Members : ${guild.memberCount}`, member.avatarURL);
@@ -163,12 +163,12 @@ bot.on("message", async(msg) => {
 		    })
 		}
 	}
-	if (cmd === `${prefix}leave`) {
-		if(msg.author.id === `253796217820151808`) {
-			bot.guilds.get("460102061950894092").leave()
-			msg.channel.send("hi done ")
-		}
-	}
+	// if (cmd === `${prefix}leave`) {
+	// 	if(msg.author.id === `253796217820151808`) {
+	// 		bot.guilds.get("GUILD ID").leave()
+	// 		msg.channel.send("hi done ")
+	// 	}
+	// }
 });
 
 bot.login(token).catch(err => console.log(err));
