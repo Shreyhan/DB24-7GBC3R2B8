@@ -58,10 +58,6 @@ bot.on("guildMemberAdd", (member)=> {
 		}
 	}
 });
-//
-// bot.on("guildMemberRemove", (member) => {
-//
-// });
 
 bot.on('messageUpdate', async(msg, nmsg) => {
 	let message = msg
@@ -81,7 +77,7 @@ bot.on('messageUpdate', async(msg, nmsg) => {
 	 hyperlogs.send(nmlogs)
  } else if (logchannel) {
 	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${msg.guild.name}`);
-	 logchannel.send(`${nmsg.author.tag} edited their message to "${nmsg.content.replace(/@/g, '')}" in ${nmsg.channel.name}`);
+	 logchannel.send(nmlogs)
  } else {
 	 console.log(`${nmsg.author.tag} edited their message and said "${nmsg}" in ${nmsg.channel.name}          ${nmsg.guild.name}`);
  }
@@ -111,7 +107,7 @@ bot.on("message", async(msg) => {
 		hyperlogs.send(omlogs)
 	} else if (logchannel) {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
-		logchannel.send(`${msg.author.tag} said "${msg.content.replace(/@/g, '')}" in ${msg.channel.name}`);
+		logchannel.send(omlogs)
 	} else {
 		console.log(`${msg.author.tag} said "${msg}" in ${msg.channel.name}          ${msg.guild.name}`);
 	}
@@ -167,11 +163,11 @@ bot.on("message", async(msg) => {
 		    })
 		}
 	}
-	// if (cmd === `${prefix}leave`) {
-	// 	if(msg.author.id === `253796217820151808`) {
-	// 		bot.guilds.get("GUILD ID").leave()
-	// 	}
-	// }
+	if (cmd === `${prefix}leave`) {
+		if(msg.author.id === `253796217820151808`) {
+			bot.guilds.get("460102061950894092").leave()
+		}
+	}
 });
 
 bot.login(token).catch(err => console.log(err));
