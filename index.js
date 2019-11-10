@@ -37,23 +37,23 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", (member)=> {
   let guild = member.guild;
-	if(guild.id === `386171809080410122`) {
-		const welcomec = guild.channels.find("name","🙋-welcome")
+	if(guild.id === `627757484894847008`) {
+		const welcomec = guild.channels.find("name","welcome")
 		let welcembed = new Discord.RichEmbed()
 		.setThumbnail(`https://images-ext-2.discordapp.net/external/iX4fv9Xg4ucJsTT0tFw4h88VWA9v2s-EyhRQJZ0IDoA/https/cdn.glitch.com/4fb5d491-ea93-4b55-a6e0-aa811fa4b052%252Fwelcome%2520%281%29.gif`)
 		.setColor("#343642")
 		.setTitle("Welcome to The server!")
 		.setDescription(`Welcome, **${member.user.tag}** to Hyper!`)
-		.addField("\u200b", 'Make sure to follow the rules! 📃')
+		.addField("\u200b", 'Make sure to get your roles! in #important-roles')
 		.setTimestamp()
 		.setFooter(`Members : ${guild.memberCount}`, member.avatarURL);
 		welcomec.send(welcembed);
   	console.log(`New Member On Server (${guild.name})! : ${member.user}`);
 		if(!member.user.bot) {
-			var memberrole = member.guild.roles.find("name", "🔹 | Rookie [0-5]");
+			var memberrole = member.guild.roles.find("name", "Member");
 			member.addRole(memberrole);
 		} else {
-			var botrole = member.guild.roles.find("name", "🤖 | Bots");
+			var botrole = member.guild.roles.find("name", "Bot");
 			member.addRole(botrole);
 		}
 	}
